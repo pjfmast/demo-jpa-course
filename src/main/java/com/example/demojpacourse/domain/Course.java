@@ -1,8 +1,9 @@
-package com.example.demojpacourse.model;
+package com.example.demojpacourse.domain;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 // See https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.sql.jpa-and-spring-data
 
@@ -13,6 +14,19 @@ public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Book> courseMaterials = new HashSet<>();
+
+    public void addBook(Book book) {
+        courseMaterials.add(book);
+        book.setCourse(this);
+    }
+
+    public void removeBook(Book book) {
+        courseMaterials.remove(book);
+        book.setCourse(null);
+    }
 
     @Column(nullable = false)
     private String title;

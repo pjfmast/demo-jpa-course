@@ -1,6 +1,7 @@
 package com.example.demojpacourse.repository;
 
-import com.example.demojpacourse.model.Course;
+import com.example.demojpacourse.domain.Course;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -19,4 +20,7 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
 
     @Query(value = "SELECT * FROM Course c WHERE DATE(startDate) = ?1", nativeQuery = true)
     List<Course> findStartingToday();
+
+    @Query(value = "SELECT c FROM Course c")
+    List<Course> findAllCourses(Sort sort);
 }

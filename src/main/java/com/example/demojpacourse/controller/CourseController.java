@@ -1,11 +1,9 @@
 package com.example.demojpacourse.controller;
 
-import com.example.demojpacourse.model.Course;
+import com.example.demojpacourse.domain.Course;
 import com.example.demojpacourse.repository.CourseRepository;
-import org.apache.coyote.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
