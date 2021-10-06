@@ -1,7 +1,6 @@
-package com.example.demojpacourse.model;
+package com.example.demojpacourse.domain;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
 
 // See https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.sql.jpa-and-spring-data

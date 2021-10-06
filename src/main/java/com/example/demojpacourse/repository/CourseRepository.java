@@ -1,6 +1,6 @@
 package com.example.demojpacourse.repository;
 
-import com.example.demojpacourse.model.Course;
+import com.example.demojpacourse.domain.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -16,7 +16,4 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
     // Some magic happens: https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation
     List<Course> findByTitleContainingIgnoringCase(String title);
     List<Course> findByStartDateAfter(LocalDate fromDate);
-
-    @Query(value = "SELECT * FROM Course c WHERE DATE(startDate) = ?1", nativeQuery = true)
-    List<Course> findStartingToday();
 }

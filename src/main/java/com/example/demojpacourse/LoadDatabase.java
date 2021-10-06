@@ -1,6 +1,6 @@
 package com.example.demojpacourse;
 
-import com.example.demojpacourse.model.Course;
+import com.example.demojpacourse.domain.Course;
 import com.example.demojpacourse.repository.CourseRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
